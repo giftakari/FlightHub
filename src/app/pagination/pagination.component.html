@@ -1,0 +1,30 @@
+<div class="container">
+<div>
+  <h3>{{imageUrls[currentPage].title}}</h3>
+  <img [src]="imageUrls[currentPage].image" alt="" style="width: 8rem; height: 8rem">
+</div>
+
+  <!-- Your content here -->
+
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="prevPage()" aria-label="Previous">
+          <span aria-hidden="true">&laquo;Previous</span>
+        </a>
+      </li>
+      <ng-container *ngFor="let page of imageUrls; let i = index">
+        <li class="page-item"   [class.active]="currentPage === page.id" *ngIf="i <5">
+          <a class="page-link" (click)="goToPage(page.id)">{{ i +1 }}</a>
+        </li>
+      </ng-container>
+
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" (click)="nextPage()" aria-label="Next">
+          <span aria-hidden="true">&raquo;Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+

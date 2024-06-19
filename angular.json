@@ -16,6 +16,7 @@
             "outputPath": "dist/relearn-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
+
             "polyfills": [
               "zone.js"
             ],
@@ -58,6 +59,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
+
           "configurations": {
             "production": {
               "browserTarget": "relearn-angular:build:production"
